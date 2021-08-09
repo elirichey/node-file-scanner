@@ -15,7 +15,6 @@ const { write } = require("./app/utils/write_json");
 
 let powerCLI = async () => {
   program
-    .option("-d, --debug", "output extra debugging")
     .option("-p, --path <type>", "Please provide path for scanning")
     .option(
       "-t, --type <type>",
@@ -23,7 +22,6 @@ let powerCLI = async () => {
     )
     .option("-e, --extension <type>", "Search for a specific file extension")
     .option("-q, --query <type>", "Search file title for keyword")
-    .option("-gs, --set-size <type>", "Set Size of File")
     .option("-min, --minimum-size <type>", "Search for files larger than min")
     .option("-max, --maximum-size <type>", "Search for files smaller than max");
   program.parse(process.argv);
