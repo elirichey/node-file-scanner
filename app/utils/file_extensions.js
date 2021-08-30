@@ -146,7 +146,7 @@ let executable = [".exe", ".msi", ".bin", ".command", ".sh", ".bat", ".crx"];
 
 let font = [".otf", ".ttc", ".ttf", ".woff", ".eot", ".woff2"];
 
-let guitar = [".gp", ".gp3", ".gp4", ".gp5", ".gpx"];
+let music = [".gp", ".gp3", ".gp4", ".gp5", ".gpx"];
 
 let image = [
   ".png",
@@ -291,7 +291,7 @@ let extenstions = {
   data,
   executable,
   font,
-  guitar,
+  music,
   image,
   text,
   slide,
