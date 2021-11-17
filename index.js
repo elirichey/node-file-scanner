@@ -5,7 +5,8 @@
  *  - File Size Minimum by ["Bytes", "KB", "MB", "GB", "TB"];
  *  - File Size Maximum by ["Bytes", "KB", "MB", "GB", "TB"];
 /*/
-
+const fs = require("fs");
+const path = require("path");
 const { program } = require("commander");
 const { scanDirForFileType } = require("./app/browse/scan_files");
 const { filterArrayByArgs } = require("./app/browse/arg_filter");
@@ -51,6 +52,36 @@ let powerCLI = async () => {
       size_max
     );
 
+    /*/ Move Files / Rename Files
+    arrayOfFiltered.forEach((item) => {
+      let oldPath = item.file_path;
+      // let newPath = `/Users/zilla/Desktop/Unknown/${item.file}`;
+      let newExt = `/Users/zilla/Desktop/Unknown/${item.file}.psd`;
+      
+      let removeExt = `/Users/zilla/Desktop/Unknown/${item.file.replace(
+        /\.[^/.]+$/,
+        ""
+      )}`;
+
+      fs.rename(oldPath, removeExt, (err) => {
+        if (err) throw err;
+        console.log("Renamed!", removeExt);
+      });
+    });
+    */
+
+    /*/ Rename Files
+    arrayOfFiltered.forEach((item) => {
+      let oldPath = item.file_path;
+      let newPath = `${item.file_path}.mp4`;
+      fs.rename(oldPath, newPath, (err) => {
+        if (err) throw err;
+        console.log("Renamed - AKA moved!");
+      });
+    });
+    */
+
+    /*
     let args = {
       dir_path: options.path ? options.path : null,
       file_types: options.type ? options.type : null,
@@ -64,6 +95,7 @@ let powerCLI = async () => {
     if (response) {
       return console.log("File Created");
     }
+    */
   }
 };
 powerCLI();
